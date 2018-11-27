@@ -11,7 +11,7 @@ body {
     align-content: center;
     text-align: center;
     background: rgba(112, 128, 144, 0.445);
-    width: 70%
+    width: 75%
     /* padding: 2rem; */
     
 }
@@ -27,7 +27,7 @@ body {
     padding-top: 2rem;
 
 }
-#gifs {
+.gifs {
     float:left;
 }
 .clearfix {

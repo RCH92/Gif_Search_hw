@@ -1,7 +1,7 @@
 
       // Initial array of giphs
-      var giphs = ["The Matrix", "Inglorious Bastards", "Pulp Fiction", "Kill Bill", "Django Unchained"];
-    
+      var giphs = ["Django Unchained", "Inglorious Bastards", "Pulp Fiction", "Kill Bill", "Django Unchained"];
+    var offset = 0;
      
       function renderButtons(array) {
 
@@ -35,7 +35,7 @@
 
       function getGiph(giph, limit) {
         
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=" + giph + "&limit=" + limit;
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=" + giph + "&limit=" + limit + "&offset=" + offset;
 
         $.ajax({
           url: queryURL,
@@ -46,9 +46,9 @@
         console.log(data);
            
         
-        var gifVault = $('<div id="gifVault">');
+        var gifVault = $('<div id="gifVault"> class="clearfix"');
             for (var i = 0; i < data.data.length; i++) {
-        var container = $('<div id="gifs">');
+        var container = $('<div class="gifs">');
         var rating = $("<h2>");
         rating.addClass('rating');
         rating.text(data.data[i].rating);
@@ -56,7 +56,10 @@
 
         var poster = $("<img>");
         poster.addClass('poster');
-        poster.attr('src', data.data[i].images.original.url);
+        poster.attr('src', data.data[i].images.original_still.url);
+        poster.attr('data-still', data.data[i].images.original_still.url);
+        poster.attr('data-animate', data.data[i].images.original.url);
+        poster.attr('data-state', "still");
         container.append(poster);
         console.log(data.data[i].images.original);
         gifVault.append(container);
@@ -76,8 +79,21 @@
         console.log(giph);
         console.log(limit);
         getGiph(giph, limit);
+        
       });
 
+      $("#giphInfo").on("click", ".poster", function() {
+        
+        var state = $(this).attr("data-state");
+     
+        if (state === "still") {
+          $(this).attr("src", $(this).attr("data-animate"));
+          $(this).attr("data-state", "animate");
+        } else {
+          $(this).attr("src", $(this).attr("data-still"));
+          $(this).attr("data-state", "still");
+        }
+    });
       // Calling the renderButtons function to display the initial list of giphs
       renderButtons(giphs);
     
