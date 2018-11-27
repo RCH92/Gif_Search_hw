@@ -1,0 +1,37 @@
+body {
+    background-image: url(http://gagasconsultant.com/wp-content/uploads/2016/03/Hexagon-Transparant.jpg);
+    background-size: 100%;
+    background-position-x: auto;
+}
+
+.rapper {
+   
+    margin: auto;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    background: rgba(112, 128, 144, 0.445);
+    width: 70%
+    /* padding: 2rem; */
+    
+}
+.container {
+    
+}
+
+#movieInfo {
+    padding: 2rem;
+}
+
+#searchTitle{
+    padding-top: 2rem;
+
+}
+#gifs {
+    float:left;
+}
+.clearfix {
+    display: block;
+    content: "";
+    clear: both;
+}

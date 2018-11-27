@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorite giphs</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style type="text/css">
+  
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="rapper">
+
+  <div class="container">
+    <h1 id="searchTitle">Giph Search</h1>
+    
+    <!-- giphs will get dumped here -->
+    <div id="giphs-view"></div>
+
+    <label for="giph-ammount"># of results</label>
+    <input type="number" id="giph-ammount" max="25" min="1" value="5">
+    
+    <form id="giph-form">
+      <label for="giph-input">Add a giph</label>
+      <input type="text" id="giph-input"><br>
+      
+
+      <!-- Button triggers new giph to be added -->
+      <input id="add-giph" type="submit" value="giph++">
+    </form>
+
+    <div id="giphInfo">
+
+    </div>
+</div>
+        
+    
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
